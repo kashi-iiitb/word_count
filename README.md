@@ -1,6 +1,6 @@
 /*****************************************************************************************
 AUTHOR:	KASHINATH CHILLAL
-DATE:	30TH MAY 2016 (NOKIA CODE WHIZ CONTEST)
+DATE:	30TH MAY 2016 
 AIM:	THE PROGRAM EXTRACTS TOP 20 HIGHEST/LEAST REPEATED WORDS
 DESCRIPTION:
 	1.Data Structure used is Binary Search Tree to store WORDS and FREQUENCY of occurance
@@ -12,9 +12,9 @@ DESCRIPTION:
 	5.At the end contents of this array are displayed (words & corresponding frequency)
 
 Compilation Process:
-	g++ -o nokia_code_whiz nokia_code_whiz.cpp
+	g++ -o word_count word_count.cpp
 To execute:	
-	./nokia_code_whiz Input.txt Highest
+	./word_count Input.txt Highest
 
 	Input file name(Input.txt), Highest/Least are passed as command line arguments
 Note:
