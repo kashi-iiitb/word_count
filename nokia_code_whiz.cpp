@@ -105,6 +105,31 @@ void insert_bst(struct node**root, char *str)
 	}
 }
 
+int height(struct node *root){
+	int ht_left=0,ht_right=0;
+	if(root==NULL)
+		return 0;
+	if(!root->left && !root->right)
+		return 1;
+	ht_left = height(root->left);
+	ht_right = height(root->right);
+	if(ht_left>ht_right)
+		return ht_left+1;
+	else
+		return ht_right+1;
+
+}
+
+int nodes(struct node *root){
+	int nodes_left=0,nodes_right=0;
+	if(root==NULL)
+		return 0;
+	if(root->left==NULL and root->right==NULL)
+		return 1;
+	nodes_left=nodes(root->left);
+	nodes_right=nodes(root->right);
+	return nodes_left+nodes_right+1;
+}
 //This function extracts 20 highest or lowest occuring words from Binary Search Tree
 void insert_hf(struct node *ptr,struct high_freq arr[],int order)
 {
@@ -304,6 +329,9 @@ int main(int argc, char*argv[])
 		cout << "Error opening input file" <<endl;
 		exit(1);
 	}
+
+	printf("Height of BST is %d\n", height(root));
+	printf("No. of nodes in BST is %d\n", nodes(root));
 	infile.close();
 return 0;
 
