@@ -152,7 +152,7 @@ int right_rotate(struct node** root,struct node* x){
 //Insert node for BST
 void insert_bst(struct node**root, char *str)
 {
-	printf("inserting %s\n",str);
+	//printf("inserting %s\n",str);
 	struct node *temp = create_node(str);
 	struct node *x=NULL,*y=NULL,*z=NULL;
 	int balance_fact=0;
@@ -173,14 +173,14 @@ void insert_bst(struct node**root, char *str)
 			prev = ptr;
 			if(strcmp(str,ptr->data)<0)
 			{
-				printf("%s traversing to left of %s\n",str,ptr->data);
+				//printf("%s traversing to left of %s\n",str,ptr->data);
 				ptr=ptr->left;
 				
 			}
 			else
 				if(strcmp(str,ptr->data)>0)
 				{
-				printf("%s traversing to right of %s\n",str,ptr->data);
+				//printf("%s traversing to right of %s\n",str,ptr->data);
 					ptr=ptr->right;
 				}
 				else
@@ -193,14 +193,14 @@ void insert_bst(struct node**root, char *str)
 		if( flag==0) {
 			if(strcmp(str,prev->data)<0)
 			{
-				printf("%s is being set at left of %s\n",temp->data, prev->data);
+				//printf("%s is being set at left of %s\n",temp->data, prev->data);
 				fflush(stdout);
 				prev->left=temp;
 				temp->parent=prev;
 			}
 			else
 			{
-				printf("%s is being set at right of %s\n",temp->data,prev->data);
+				//printf("%s is being set at right of %s\n",temp->data,prev->data);
 				fflush(stdout);
 				prev->right=temp;
 				temp->parent=prev;
@@ -218,34 +218,34 @@ void insert_bst(struct node**root, char *str)
 				left_ht= height(y->left);
 				right_ht=height(y->right);
 				y->height = 1+max(left_ht,right_ht);
-				printf("y: Height updated for %s, height is %d\n",y->data,y->height);
+				//printf("y: Height updated for %s, height is %d\n",y->data,y->height);
 				x = y->parent;
 				if(x!=NULL){
-					printf("x: is %s, height is %d\n",x->data,x->height);
+					//printf("x: is %s, height is %d\n",x->data,x->height);
 					balance_fact=0;
 					balance_fact = balance(x);
-					printf("balance is %d\n",balance_fact);
-				}else
-					printf("grandparent is NULL\n");
+				//	printf("balance is %d\n",balance_fact);
+				}//else
+				//	printf("grandparent is NULL\n");
 				if(balance_fact <=-2 || balance_fact >=2){
 					if(y==x->left){
 						if(z==x->left->left){
-							printf("Right rotate\n");
+				//			printf("Right rotate\n");
 							right_rotate(root,x);
 						}
 						else if(z==x->left->right){
-								printf("Left-Right rotate\n");
+				//				printf("Left-Right rotate\n");
 								left_rotate(root,y);
 								right_rotate(root,x);
 							}
 					}
 					else if(y==x->right) {
 						if(z==x->right->right){
-							printf("Left rotate\n");
+				//			printf("Left rotate\n");
 							left_rotate(root,x);
 						}
 						else if(z==x->right->left){
-								printf("Right-Left rotate\n");
+				//				printf("Right-Left rotate\n");
 								right_rotate(root,y);
 								left_rotate(root,x);
 							}
