@@ -79,6 +79,7 @@ int left_rotate(struct node** root,struct node* x){
 	left_ht = height(y->left);
 	right_ht = height(y->right);
 	y->height = max(left_ht,right_ht)+1;
+	return 0;
 }
 
 int right_rotate(struct node** root,struct node* x){
@@ -105,6 +106,7 @@ int right_rotate(struct node** root,struct node* x){
 	left_ht = height(y->left);
 	right_ht = height(y->right);
 	y->height = max(left_ht,right_ht)+1;
+	return 0;
 }
 //Insert node for BST
 void insert_bst(struct node**root, char *str)
